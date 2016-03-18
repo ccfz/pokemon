@@ -1,5 +1,4 @@
 
-
 class Game
 
   def self.start(player1, player2)

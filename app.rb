@@ -6,30 +6,18 @@ require './lib/attack'
 
 class Battle < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super secret'
 
   get '/' do
     erb(:game_type)
   end
 
-  get '/s_player_form' do
-    erb(:single_form)
-  end
-
-  get '/player_form' do
-    erb(:player_form)
-  end
-
-  post '/name_sp' do
-    player1 = Player.new(params[:player1])
-    player2 = Player.new('Computer')
-    Game.start(player1, player2)
-    redirect('/play')
+  post '/player_form' do
+    params[:game_type] == 'Single Player' ? erb(:single_form) : erb(:player_form)
   end
 
   post '/names' do
     player1 = Player.new(params[:player1])
-    player2 = Player.new(params[:player2])
+    p player2 = Player.new(params[:player2])
     Game.start(player1, player2)
     redirect('/play')
   end
@@ -55,13 +43,14 @@ class Battle < Sinatra::Base
     erb(:game_over)
   end
 
+  get '/cp_attack' do
+    erb(:cp_attack)
+  end
+
 	get '/switch_turn' do
     @game.switch_player
     @game.computer? ? redirect('attack') : redirect('/play')
 	end
-
-  get '/wrong' do
-  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0

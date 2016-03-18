@@ -1,3 +1,4 @@
+
 class Attack
 
   def self.commence(player)
