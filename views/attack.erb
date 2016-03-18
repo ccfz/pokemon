@@ -2,6 +2,6 @@
 <br>
 <h1><%= @game.current_player.name %> has hit <%= @game.current_opponent.name %>!</h1>
 <br>
-<form action="/switch_turn" method="post">
+<form action="/switch_turn" method="get">
   <button type="submit" value="Finished">Finished</button>
 </form>

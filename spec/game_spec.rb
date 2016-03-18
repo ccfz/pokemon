@@ -19,12 +19,12 @@ describe Game do
 		end
 	end
 
-	# describe '#attack' do
-	# 	it ' calls the been_hit method' do
-	# 		expect(tom).to receive(:been_hit)
-	# 		game.attack(tom)
-	# 	end
-	# end
+	describe '#computer' do
+		it ' should check if it is the computer turn' do
+		allow(game.current_player).to receive(:name).and_return('Computer')
+		expect(game.computer?).to eq true
+		end
+	end
 
 	describe '#current_opponent' do
 		it ' shows the current_opponent' do

@@ -1,7 +1,5 @@
 
 
-require_relative 'player'
-
 class Game
 
   def self.start(player1, player2)
@@ -20,9 +18,9 @@ class Game
     @current_player = @player1
   end
 
-  # def attack(player)
-  #   player.been_hit
-  # end
+  def computer?
+    @current_player.name == 'Computer'
+  end
 
   def current_opponent
   	@current_player == @player1 ? player2 : player1

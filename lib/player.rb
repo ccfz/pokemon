@@ -1,6 +1,6 @@
 class Player
 
-  DEFAULT_HP = 100
+  DEFAULT_HP = 20
   DEFAULT_HIT = 10
 
   attr_reader :name, :hit_points

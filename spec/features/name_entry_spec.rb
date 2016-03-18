@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'capybara'
+
 
 feature 'Start fight' do
   scenario 'Fill in names' do
@@ -8,6 +8,6 @@ feature 'Start fight' do
   end
   scenario "Viewing Player 2's Hit Points" do
     sign_in_and_play
-    expect(page).to have_content("Ruff: 100 HP")
+    expect(page).to have_content("Ruff: 20 HP")
   end
 end
